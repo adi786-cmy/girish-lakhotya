@@ -1,0 +1,82 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        cream: "#E8E4DE",
+        ink: "#0F0E0C",
+        accent: {
+          DEFAULT: "#C45D3E",
+          light: "#E07A5F",
+          muted: "#D4956B",
+        },
+        warm: "#6b645c",
+        muted: "#b0ada8",
+        light: "#d1d1c7",
+        elevated: "#2a2a2a",
+        "elevated-dark": "#1a1a18",
+        surface: "#0d0d0c",
+        "surface-mid": "#161615",
+        border: "#d0d0c8",
+        "border-dark": "#c8c8c0",
+        "border-subtle": "#393632",
+        "border-subtler": "#2a2a28",
+        charcoal: "#1a1a1a",
+        "gray-soft": "#9a9a90",
+        "gray-mid": "#4a4a48",
+        tech: {
+          DEFAULT: "#38BDF8",
+          400: "#7DD3FC",
+          500: "#38BDF8",
+          600: "#0284C7",
+        },
+        obsidian: {
+          DEFAULT: "#0F0E0C",
+          950: "#0F0E0C",
+          900: "#0F0E0C",
+          850: "#161615",
+          800: "#1a1a18",
+          700: "#2a2a2a",
+          600: "#393632",
+        },
+        gold: {
+          DEFAULT: "#C45D3E",
+          400: "#E07A5F",
+          500: "#C45D3E",
+          600: "#C45D3E",
+          700: "#b85133",
+          glow: "rgba(196, 93, 62, 0.15)",
+        },
+        editorial: {
+          light: "#d1d1c7",
+          muted: "#6b645c",
+          subtle: "#9a9a90",
+          border: "#d0d0c8",
+          card: "#E8E4DE",
+        },
+      },
+      fontFamily: {
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "sans-serif"],
+        serif: ["var(--font-instrument-serif)", "Georgia", "serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
+        body: ["var(--font-geist-sans)", "sans-serif"],
+      },
+      fontSize: {
+        hero: ["var(--text-hero)", { lineHeight: "0.85" }],
+        "hero-sm": ["var(--text-hero-sm)", { lineHeight: "0.85" }],
+        "section-xl": ["var(--text-section-xl)", { lineHeight: "0.9" }],
+        section: ["var(--text-section)", { lineHeight: "0.95" }],
+      },
+      boxShadow: {
+        card: "0 20px 40px -15px rgba(15, 14, 12, 0.18)",
+      },
+    },
+  },
+  plugins: [],
+};

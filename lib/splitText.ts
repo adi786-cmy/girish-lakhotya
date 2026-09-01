@@ -1,0 +1,10 @@
+"use client";
+
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(SplitText);
+}
+
+export { SplitText };

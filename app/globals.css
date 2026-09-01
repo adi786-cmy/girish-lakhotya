@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-geist-sans: "Geist", system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-instrument-serif: "Instrument Serif", Georgia, serif;
+  --text-hero: clamp(4.25rem, 18vw, 14rem);
+  --text-hero-sm: clamp(3.6rem, 16vw, 11rem);
+  --text-section-xl: clamp(2.75rem, 8.5vw, 7.5rem);
+  --text-section: clamp(2.25rem, 6.5vw, 5.5rem);
+  --text-stat: clamp(2.5rem, 6vw, 4.75rem);
+  --spacing-section: clamp(6rem, 12vw, 11rem);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  touch-action: pan-y;
+  background-color: #E8E4DE;
+  color: #0F0E0C;
+  color-scheme: light;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background-color: #E8E4DE;
+  color: #0F0E0C;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.menu-open {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+body.preloader-active {
+  overflow: hidden;
+}
+
+::selection {
+  background: #C45D3E;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #c45d3e;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 10002;
+  padding: 0.75rem 1.25rem;
+  background: #0f0e0c;
+  color: #e8e4de;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top 0.25s ease;
+}
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+.film-grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+.serif-accent {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+
+.hero-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+@keyframes preloader-slide-up {
+  to { transform: translateY(-100%); }
+}
+.preloader-exit {
+  animation: preloader-slide-up 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+@keyframes preloader-word-in {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.preloader-word {
+  animation: preloader-word-in 0.3s ease-out;
+}
+@keyframes preloader-line {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.preloader-line {
+  width: 0;
+  animation: preloader-line 1.1s linear forwards;
+}
+
+@keyframes stamp-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.stamp-disc {
+  animation: stamp-spin 14s linear infinite;
+  transform-origin: center;
+}
+
+.marquee-container { overflow: hidden; width: 100%; }
+.marquee-row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+.marquee-content-left {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-left 30s linear infinite;
+}
+.marquee-content-right {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-right 30s linear infinite;
+}
+@keyframes marquee-left {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes marquee-right {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.marquee-row::before,
+.marquee-row::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-row-light::before {
+  left: 0;
+  background: linear-gradient(to right, #E8E4DE, transparent);
+}
+.marquee-row-light::after {
+  right: 0;
+  background: linear-gradient(to left, #E8E4DE, transparent);
+}
+.marquee-row-dark::before {
+  left: 0;
+  background: linear-gradient(to right, #0F0E0C, transparent);
+}
+.marquee-row-dark::after {
+  right: 0;
+  background: linear-gradient(to left, #0F0E0C, transparent);
+}
+
+@keyframes arrowPulse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+.arrow-pulse {
+  animation: arrowPulse 1.5s ease-in-out infinite;
+}
+
+@media (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .film-grain,
+  .stamp-disc,
+  .marquee-content-left,
+  .marquee-content-right,
+  .arrow-pulse,
+  .preloader-exit,
+  .preloader-word,
+  .preloader-line {
+    animation: none !important;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+  .heading-hero {
+    @apply font-display font-black uppercase tracking-tight leading-none text-ink text-hero;
+  }
+  .heading-1 {
+    @apply font-display font-black uppercase tracking-tight leading-none text-ink text-section-xl;
+  }
+  .heading-2 {
+    @apply font-display font-black uppercase tracking-tight leading-none text-ink text-section;
+  }
+  .heading-3 {
+    @apply font-display font-bold uppercase tracking-tight leading-tight text-ink text-3xl sm:text-4xl;
+  }
+}
