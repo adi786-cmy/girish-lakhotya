@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { founderProfile } from "@/data/content";
 import { generatePageMetadata } from "@/lib/seo";
+import AboutFemmiconSection from "@/components/sections/AboutFemmiconSection";
 
 export const metadata = generatePageMetadata({
   title: "About Girish Lakhotya — The Bondsman of India",
@@ -83,6 +84,8 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        <AboutFemmiconSection />
 
         <div className="space-y-8">
           <div className="space-y-2">

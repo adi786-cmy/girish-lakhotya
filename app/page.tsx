@@ -5,7 +5,9 @@ import HeroSection from "@/components/sections/HeroSection";
 import Marquee from "@/components/shared/Marquee";
 import StartHereSection from "@/components/sections/StartHereSection";
 import FounderScrollSection from "@/components/sections/FounderScrollSection";
+import FounderBookSection from "@/components/sections/FounderBookSection";
 import BeliefSection from "@/components/sections/BeliefSection";
+import FounderEventSection from "@/components/sections/FounderEventSection";
 import ThoughtsHighlightSection from "@/components/sections/ThoughtsHighlightSection";
 import VideoHubHighlightSection from "@/components/sections/VideoHubHighlightSection";
 import PodcastHighlightSection from "@/components/sections/PodcastHighlightSection";
@@ -31,7 +33,9 @@ export default function HomePage() {
       <StartHereSection />
       <SignatureBrandMomentSection />
       <FounderScrollSection />
+      <FounderBookSection />
       <BeliefSection />
+      <FounderEventSection />
       <ThoughtsHighlightSection />
       <VideoHubHighlightSection />
       <PodcastHighlightSection />
